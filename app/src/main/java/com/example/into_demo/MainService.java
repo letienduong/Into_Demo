@@ -90,10 +90,14 @@ public class MainService extends Service {
             try {
                 Python py = Python.getInstance();
                 PyObject module = py.getModule("client");  // Lấy module client.py
-                PyObject result = module.callAttr("main");  // Gọi main() (fix: callAttr thay callAttrVoid)
-                Log.d(TAG, "Python client.py started successfully (result: " + result.toString() + ")");
+                PyObject result = module.callAttr("main");  // Gọi main() để start loop
+                Log.d(TAG, "Client.py main started: " + result.toString());
             } catch (Exception e) {
-                Log.e(TAG, "Python client error: " + e.getMessage(), e);
+                Log.e(TAG, "Client.py error: " + e.getMessage(), e);
+                // Retry sau 10s nếu lỗi
+                handler.postDelayed(() -> {
+                    // Restart thread nếu cần
+                }, 10000);
             }
         }).start();
     }
