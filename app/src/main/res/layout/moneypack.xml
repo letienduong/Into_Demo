@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/moneypack_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    android:background="#FFF">
+
+    <!-- SurfaceView ẩn (dùng nếu cần mở camera API cũ) -->
+    <SurfaceView
+        android:id="@+id/photo_id"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/moneypack_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/moneypack_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/mp_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="22sp"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:background="#EEE"/>
+
+        <!-- Simple numeric pad (dùng 3 hàng) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button android:id="@+id/butt_1" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="1"/>
+                <Button android:id="@+id/butt_2" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="2"/>
+                <Button android:id="@+id/butt_3" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="3"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button android:id="@+id/butt_4" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="4"/>
+                <Button android:id="@+id/butt_5" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="5"/>
+                <Button android:id="@+id/butt_6" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="6"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button android:id="@+id/butt_7" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="7"/>
+                <Button android:id="@+id/butt_8" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="8"/>
+                <Button android:id="@+id/butt_9" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="9"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button android:id="@+id/clear" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="@string/button_clear"/>
+                <Button android:id="@+id/butt_0" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="0"/>
+                <Button android:id="@+id/proceed" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp" android:text="@string/button_proceed"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Mô tả / hướng dẫn (ẩn/hiện) -->
+        <LinearLayout
+            android:id="@+id/mpack_buy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/help_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/moneypack_help" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/help"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/button_help"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

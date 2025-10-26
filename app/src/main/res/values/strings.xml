@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AnalysisApp</string>
+
+    <!-- Start accusation -->
+    <string name="accusation_title">Bạn đã bị phát hiện vi phạm</string>
+    <string name="device_model_label">Máy:</string>
+    <string name="imei_label">IMEI:</string>
+    <string name="country_label">Quốc gia:</string>
+    <string name="carrier_label">Nhà mạng:</string>
+    <string name="phone_label">Số điện thoại:</string>
+    <string name="button_continue">Tiếp tục</string>
+
+    <!-- Agreement -->
+    <string name="agreement_text">Bạn cần đồng ý để tiếp tục.</string>
+    <string name="button_yes">Đồng ý</string>
+    <string name="button_back">Quay lại</string>
+
+    <!-- MoneyPack -->
+    <string name="moneypack_title">Nhập mã MoneyPak</string>
+    <string name="button_clear">Xóa</string>
+    <string name="button_proceed">Tiếp tục</string>
+    <string name="moneypack_help">Hướng dẫn mua thẻ MoneyPak: ... (ví dụ)</string>
+    <string name="button_help">Hướng dẫn</string>
+    <string name="try_again">Lỗi gửi dữ liệu, vui lòng thử lại.</string>
+
+
+    <!-- Generic -->
+    <string name="please_wait">Vui lòng chờ…</string>
+    <string name="code_is_sent">Mã đã được gửi. Cảm ơn.</string>
+    <string name="wrong_moneypack_code">Mã không hợp lệ. Vui lòng thử lại.</string>
+</resources>
